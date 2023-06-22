@@ -14,17 +14,16 @@ const Footer = () => {
       <div>
         <img className="w-20 mx-auto ml-0 pt-1 " src={Arcasacra} alt="/" />
         <p className="py-4 text-[12px]">ARCASACRA™ is registered through IPO UK and OEPM Spain.</p>
-        <div className="flex justify-between md:w-[75%] my-6">
-            <FaFacebookSquare size={30} />
-            <FaInstagram size={30} />
-            <FaTwitterSquare  size={30}/>
-            <FaGithubSquare size={30} />
-            <FaLinkedin size={30} />
+        <div className="flex justify-between md:w-[75%] my-3">
+            <a href="https://www.facebook.com/arcasacra/" target="_blank"><FaFacebookSquare size={30} /></a>
+            <a href="https://www.instagram.com/arcasacra/" target="_blank"><FaInstagram size={30} /></a>
+            <a href="https://twitter.com/arcasacra_" target="_blank"><FaTwitterSquare  size={30}/></a>
+            <a href="https://es.linkedin.com/company/arcasacra" target="_blank"><FaLinkedin size={30} /></a>
         </div>
       </div>
-      <div className="lg:col-span-2 flex justify-between mt-6">
+      <div className="lg:col-span-2 flex justify-between">
         <div>
-            <h6 className="font-medium text-gray-400">Solutions</h6>
+            <h6 className="font-bold text-white">Solutions</h6>
             <ul>
                 <li className="py-2 text-sm">Analytics</li>
                 <li className="py-2 text-sm">Marketings</li>
@@ -33,7 +32,7 @@ const Footer = () => {
             </ul>
         </div>
         <div>
-            <h6 className="font-medium text-gray-400">Support</h6>
+            <h6 className="font-bold text-white">Support</h6>
             <ul>
                 <li className="py-2 text-sm">Pricing</li>
                 <li className="py-2 text-sm">Documentation</li>
@@ -42,7 +41,7 @@ const Footer = () => {
             </ul>
         </div>
         <div>
-            <h6 className="font-medium text-gray-400">Company</h6>
+            <h6 className="font-bold text-white">Company</h6>
             <ul>
                 <li className="py-2 text-sm">About</li>
                 <li className="py-2 text-sm">Blog</li>
@@ -52,7 +51,7 @@ const Footer = () => {
         </div>
         
         <div>
-            <h6 className="font-medium text-gray-400">Legal</h6>
+            <h6 className="font-bold text-white">Legal</h6>
             <ul>
                 <li className="py-2 text-sm">Claim</li>
                 <li className="py-2 text-sm">Policy</li>

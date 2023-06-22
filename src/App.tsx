@@ -1,11 +1,11 @@
 import './App.css'
-import Analytics from './components/Analytics'
 import Company from './components/Company'
 import Footer from './components/Footer'
 import Hero from './components/Hero'
 import NavBar from './components/NavBar'
-import Newsletter from './components/Newsletter'
-import Subcriptions from './components/Subcriptions'
+import Contact from './components/Contact'
+import Services from './components/Services'
+import Values from './components/Values'
 
 
 function App() {
@@ -14,10 +14,10 @@ function App() {
     <div className="">
       <NavBar />
       <Hero />
-      {/*<Company/> */ }
-      <Analytics />
-      <Newsletter />
-      <Subcriptions />
+      <Company />
+      <Values />
+      <Services />
+      <Contact />
       <Footer />
     </div>
   )

@@ -1,28 +1,25 @@
 import React from "react";
+import Logo from "../assets/Logo Arcasacra White.png"
 
 const Hero = () => {
   return (
     <div className="text-white">
-      <div className="max-w-[800px] mt-[-96px] w-full h-screen mx-auto text-center flex flex-col justify-center">
-        { /** 
-        <p className="text-[#00df9a] font-bold p-2">
-          {" "}
-          Change = Creativity + Community
-        </p>
-        */}
-        <h1 className="md:text-7xl sm:text-6xl text-4xl font-bold md:py-6">
-          An ethical partnership
+      <div className="max-w-[1024px]  w-full h-screen mx-auto px-1 text-center flex flex-col justify-center items-center">
+        <img src={Logo} className=" w-32 h-30  mb-4" />
+        <h1 className="md:text-7xl sm:text-6xl text-4xl font-bold md:py-4">
+          Take the ethical way
         </h1>
         <div className="flex justify-center items-center">
-          <p className="md:text-5xl sm:text-4xl text-xl font-bold py-4">
-          Aiming to change the world
+          <p className="md:text-4xl sm:text-2xl text-xl font-bold py-4">
+          Change = Creativity + Community
           </p>
         </div>
-        <p className="md:text-2xl text-xl font-bold">
-          {" "}
-          Change = Creativity + Community
+        <p className="md:text-xl text-lg font-semibold py-4">
+        We are a community-minded creative company with a goal in mind:
         </p>
-        <button className="bg-[#B9AFF5] w-[300px] rounded-md  my-6 mx-auto py-3 text-white font-bold">Check our community marketplace!</button>
+        <p className="md:text-xl text-lg font-bold">
+        building a better world together!
+        </p>
       </div>
     </div>
   );
