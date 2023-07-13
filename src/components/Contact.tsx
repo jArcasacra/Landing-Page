@@ -11,7 +11,7 @@ const Contact = () => {
             <div className='my-4'>
                 <div className='flex flex-col sm:flex-row items-center justify-between w-full'>
                     <input className='p-3 flex w-full rounded-md text-black' type="email" placeholder='Enter Email'/>
-                    <button className="bg-[#232045] w-[200px] rounded-md font-medium md:ml-4 my-6 mx-auto px-6 py-3 text-white">Subscribe</button>
+                    <button className="bg-secondary w-[200px] rounded-md font-medium md:ml-4 my-6 mx-auto px-6 py-3 text-white">Subscribe</button>
                 </div>
                 <p>We care bout the protection of your data. Read our <span className='text-[#dbd9f1] font-semibold'><a href="#">Privacy Policy</a></span>.</p>
             </div>

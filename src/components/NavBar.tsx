@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link } from "react-scroll";
 import Arcasacra from "../assets/ARCASACRA.png";
+import { motion } from "framer-motion";
+import { slideIn } from "../utils/anims";
+import { links } from "../constants";
 
 const NavBar = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -29,65 +32,47 @@ const NavBar = () => {
   }, [prevScrollPos]);
 
   return (
-    <div
-      className={`text-white flex justify-between items-center h-24  mx-auto z-30  px-8 transition duration-300 ease-out fixed top-0 w-full bg-[#735EEB]
+    <motion.div
+      className={`text-white flex justify-between items-center h-24  mx-auto z-30  px-8 transition duration-300 ease-out fixed top-0 w-full bg-primary
      ${visible ? "" : "-translate-y-28"} ${isYZero ? "shadow-lg" : ""}`}
+     initial="hidden"
+     whileInView="show"
+     viewport={{once: true, amount:0.25}}
     >
-      <img className="md:w-[72px] w-16 ml-0 pt-1 " src={Arcasacra} alt="/" />
+      <motion.div className="md:w-[72px] w-16 ml-0 pt-1"
+      variants={slideIn("left", "", 0.75, 1)}>
+      <img src={Arcasacra} alt="/" />
+      </motion.div>
       <ul className="hidden mx-auto md:flex">
-        <li className="p-4 md:text-lg sm:text-md text-xl font-bold cursor-pointer">
-        <Link
-              to="company"
+        {links.map((link, index) => (
+          <motion.li className="p-4 md:text-lg sm:text-md text-xl font-bold cursor-pointer"
+           variants={slideIn("down", "", 0.5 * index, 0.3)}>
+            <Link
+              to={link.id}
               spy={true}
               smooth={true}
               offset={50}
               duration={500}
               onClick={() => setOpen(false)}
-            >Company</Link>
-        </li>
-        <li className="p-4 md:text-lg sm:text-md text-xl font-bold cursor-pointer">
-        <Link
-              to="values"
-              spy={true}
-              smooth={true}
-              offset={50}
-              duration={500}
-              onClick={() => setOpen(false)}
-            >Values</Link>
-        </li>
-        <li className="p-4 md:text-lg sm:text-md text-xl font-bold cursor-pointer">
-        <Link
-              to="services"
-              spy={true}
-              smooth={true}
-              offset={50}
-              duration={500}
-              onClick={() => setOpen(false)}
-            >Services</Link>
-        </li>
-        <li className="p-4 md:text-lg sm:text-md text-xl font-bold cursor-pointer">
-        <Link
-              to="contact"
-              spy={true}
-              smooth={true}
-              offset={50}
-              duration={500}
-              onClick={() => setOpen(false)}
-            >Contact</Link>
-        </li>
+            >
+              {link.title}
+            </Link>
+          </motion.li>
+        ))}
       </ul>
-      <button className="bg-[#232045] hidden md:block w-[150px]  rounded-md py-3 text-white font-bold">
+      <motion.button className="bg-secondary hidden md:block w-[150px]  rounded-md py-3 text-white font-bold"
+      variants={slideIn("right" ,"" ,0.75, 1)}>
         <a href="https://www.ethicarts.com/" rel="noreferrer" target="_blank">
           Visit EthicArts
         </a>
-      </button>
+      </motion.button>
       <button onClick={() => setOpen(!isOpen)} className="block md:hidden">
         {isOpen ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
       </button>
       <div
         className={
           isOpen
-            ? "overflow-hidden fixed left-0 top-0 w-[60%] border-r border-r-gray-900 h-full bg-[#735EEB] ease-in-out duration-500"
+            ? "overflow-hidden fixed left-0 top-0 w-[60%] border-r border-r-gray-900 h-full bg-primary ease-in-out duration-500"
             : "fixed left-[-100%]"
         }
       >
@@ -97,47 +82,29 @@ const NavBar = () => {
           alt="/"
         />
         <ul className="uppercase p-4">
-          <li className="p-4 border-b font-bold border-gray-600"><Link
-              to="company"
-              spy={true}
-              smooth={true}
-              offset={50}
-              duration={500}
-              onClick={() => setOpen(false)}
-            >Company</Link></li>
-          <li className="p-4 border-b font-bold border-gray-600"><Link
-              to="values"
-              spy={true}
-              smooth={true}
-              offset={50}
-              duration={500}
-              onClick={() => setOpen(false)}
-            >Values</Link></li>
-          <li className="p-4 border-b font-bold border-gray-600"><Link
-              to="services"
-              spy={true}
-              smooth={true}
-              offset={50}
-              duration={500}
-              onClick={() => setOpen(false)}
-            >Services</Link></li>
-          <li className="p-4 border-b font-bold border-gray-600"><Link
-              to="contact"
-              spy={true}
-              smooth={true}
-              offset={50}
-              duration={500}
-              onClick={() => setOpen(false)}
-            >Contact</Link></li>
+          {links.map((link) => (
+            <motion.li className="p-4 border-b font-bold border-gray-600">
+              <Link
+                to={link.id}
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+                onClick={() => setOpen(false)}
+              >
+                {link.title}
+              </Link>
+            </motion.li>
+          ))}
         </ul>
 
-        <button className="bg-[#232045] w-[150px] rounded-md  ml-10 py-3 my-2 text-white font-bold">
+        <button className="bg-secondary w-[150px] rounded-md  ml-10 py-3 my-2 text-white font-bold">
           <a href="https://www.ethicarts.com/" rel="noreferrer" target="_blank">
             Visit EthicArts
           </a>
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

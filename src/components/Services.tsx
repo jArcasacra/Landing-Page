@@ -1,29 +1,35 @@
 import React from "react";
-import Tech from '../assets/pexels-luis-gomes-546819.jpg';
-import Music from '../assets/pexels-pixabay-257904.jpg';
-import Marketing from '../assets/pexels-dominika-roseclay-905163.jpg';
-import ServiceCard from "./ServiceCard";
 
+import ServiceCard from "./ServiceCard";
+import { servicesDesc } from "../constants";
+import { motion } from "framer-motion";
+import { fadeIn } from "../utils/anims";
 
 const Services = () => {
+  const services = servicesDesc;
 
-  const services = [
-    {id: 1, image: Tech, title: 'Development', description: 'test'},
-    {id: 2, image: Music, title: 'Music Production', description: 'test'},
-    {id: 3, image: Marketing, title: 'Marketing', description: 'test'},
-  ]
-  
   return (
-    <div id="services" className="w-full py-[4rem] px-4 bg-white">
+    <motion.div
+      id="services"
+      className="w-full py-[4rem] px-4 bg-white"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.25 }}
+    >
       <div className="flex items-center justify-center pb-16">
-      <h1 className="font-bold md:text-4xl sm:text-3xl text-2xl text-[#735EEB]">Some services we are offering</h1>
+        <motion.h1
+          className="font-bold md:text-4xl sm:text-3xl text-2xl text-primary"
+          variants={fadeIn("", "", 0.1, 1)}
+        >
+          Some services we are offering
+        </motion.h1>
       </div>
       <div className="max-w-[1240px] mx-auto grid md:grid-cols-1 gap-8">
         {services.map((s, i) => (
-          <ServiceCard service={s} key={i} reversed={i%2===0}/>
+          <ServiceCard service={s} key={i} reversed={i % 2 === 0} />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

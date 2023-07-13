@@ -5,7 +5,7 @@ import Hero from './components/Hero'
 import NavBar from './components/NavBar'
 import Contact from './components/Contact'
 import Services from './components/Services'
-import Values from './components/Values'
+import Principles from './components/Principles'
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <NavBar />
       <Hero />
       <Company />
-      <Values />
+      <Principles />
       <Services />
       <Contact />
       <Footer />
