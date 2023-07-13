@@ -7,7 +7,7 @@ const Values = () => {
   const cards = valuesDesc;
   return (
     <motion.div
-      id="values"
+      id="principles"
       className="w-full py-[4rem] px-4"
       initial="hidden"
       whileInView="show"
